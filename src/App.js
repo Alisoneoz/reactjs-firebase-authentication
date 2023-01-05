@@ -1,7 +1,9 @@
+import Navigation from "./navigation/Navigation";
+
 function App() {
   return (
-    <div className="App">
-      <h2>Hello World</h2>
+    <div className="App bg-stone-400 h-screen w-screen">
+      <Navigation />
     </div>
   );
 }
