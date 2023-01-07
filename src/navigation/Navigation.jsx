@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PasswordReset from "../pages/PasswordReset";
 import NavBar from "./NavBar";
 
 import { initializeApp } from "firebase/app";
@@ -17,6 +18,7 @@ const Navigation = () => {
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
+        <Route path="/resetpassword" element={<PasswordReset />}/>
       </Routes>
     </BrowserRouter>
   )

@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate()
   const auth = getAuth();
 
   const [email, setEmail] = useState("");
@@ -13,7 +15,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      console.log(`Sihned in use: ${user}`);
+      console.log("Signed in user: ", user);
     })
     .catch((error) => {
       const errorCode = error.Code;
@@ -50,7 +52,9 @@ const Login = () => {
         </div>
         <div>
           <button>Login</button>
+          <button className="bg-green-900 my-4 p-1 text-green-300" onClick={()=>{navigate("/resetpassword")}}>Reset your Password</button>
         </div>
+
       </form>
     </div>
   )
