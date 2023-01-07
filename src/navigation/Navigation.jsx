@@ -5,7 +5,11 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NavBar from "./NavBar";
 
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../firebase";
+
 const Navigation = () => {
+  initializeApp(firebaseConfig);
   return (
     <BrowserRouter>
       <NavBar />

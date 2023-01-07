@@ -5,13 +5,15 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+ 
+
   const auth = getAuth();
-  const handleRegistration = (() => {
+  const handleRegistration = ((e) => {
+    e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user
-        console.log(`Registered user: ${user}`)
+        const user = userCredential.user;
+        console.log("Registered user: ", user)
         setEmail("");
         setPassword("");
         //navigate("/home") 
@@ -20,13 +22,13 @@ const Register = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(`Error ocurred: ${errorCode}, ${errorMessage}`)
-        setError(error);
+       
       })
   })
   return (
     <div>
       <form onSubmit={handleRegistration}>
-        {error && <p>this error ocurred: {error}</p>}
+        
         <div className="">
           <label>Email</label>
           <input 
@@ -34,7 +36,7 @@ const Register = () => {
             placeholder="email"
             value={email}
             name="email"
-            onChange={(e)=>{setEmail(e.target.value)}}
+            onChange={(e)=>{setEmail(e.target.value); console.log(e.target.value)}}
            />
 
           <label></label>
@@ -43,7 +45,7 @@ const Register = () => {
             placeholder="password"
             value={password}
             name="password"
-            onChange={(e)=>{setPassword(e.target.value)}}
+            onChange={(e)=>setPassword(e.target.value)}
            />
         </div>
         <div className="">
