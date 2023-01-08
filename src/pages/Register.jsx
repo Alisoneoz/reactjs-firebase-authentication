@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
-//import { useNavigate } from "react-router-dom";
+
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +16,6 @@ const Register = () => {
         console.log("Registered user: ", user)
         setEmail("");
         setPassword("");
-        //navigate("/home") 
       })
       .catch((error) => {
         const errorCode = error.code;
