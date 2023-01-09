@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { saveUser } from "./redux/slices/authSlice"
 import { useEffect } from "react";
 
+
 function App() {
   initializeApp(firebaseConfig);
   const auth= getAuth();
@@ -24,8 +25,8 @@ function App() {
   })
   return (
       <div className="App bg-stone-400 h-screen w-screen">
-      <Navigation />
-    </div>
+        <Navigation />
+      </div>
   );
 }
 

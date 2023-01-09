@@ -9,18 +9,25 @@ import Secret from "../pages/protected/Secret"
 
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../firebase";
+import ProtectedRoute from "../utils/ProtectedRoute";
+
+
+
 
 const Navigation = () => {
   initializeApp(firebaseConfig);
+   
   return (
     <BrowserRouter>
       <NavBar />
+      
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/resetpassword" element={<PasswordReset />}/>
-        <Route path="/secretpage" element={<Secret />}/>
+        <Route path="/secretpage" element={<ProtectedRoute> <Secret /> </ProtectedRoute>} />
+        
       </Routes>
     </BrowserRouter>
   )
