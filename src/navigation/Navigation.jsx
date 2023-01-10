@@ -26,7 +26,8 @@ const Navigation = () => {
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/resetpassword" element={<PasswordReset />}/>
-        <Route path="/secretpage" element={<ProtectedRoute> <Secret /> </ProtectedRoute>} />
+        <Route path="/secretpage" element={<ProtectedRoute> <Secret /> 
+        </ProtectedRoute>} />
         
       </Routes>
     </BrowserRouter>

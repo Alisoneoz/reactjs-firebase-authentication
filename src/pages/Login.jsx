@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
 
 const Login = () => {
   const navigate = useNavigate()
@@ -54,7 +55,16 @@ const Login = () => {
           <button>Login</button>
           <button className="bg-green-900 my-4 p-1 text-green-300" onClick={()=>{navigate("/resetpassword")}}>Reset your Password</button>
         </div>
-
+        <div className="flex items-center justify-between">
+            <div className="text-sm">
+              <Link
+                to="/register"
+                className="text-blue-600 hover:underline dark:text-blue-500"
+              >
+                Don't have an account? Register
+              </Link>
+            </div>
+          </div>
       </form>
     </div>
   )
